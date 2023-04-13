@@ -65,7 +65,8 @@ class Scores:
         x = 0
         stri = ""
         while (x < len(history)):
-            stri += "Grounds: " + str(history[x]) + " Lows: " + str(history[x + 1]) + " Meds: " + str(history[x + 2]) + " Highs: " + str(history[x + 3]) + " Parked?: " + str(history[x + 4]) + "<br> \n"
+            stri += "Grounds: " + str(history[x]) + " Lows: " + str(history[x + 1]) + " Meds: " + str(history[x + 2]) + " Highs: "\
+            + str(history[x + 3]) + " Parked?: " + str(history[x + 4]) + "<br> \n"
             x += 5
 
         return stri
