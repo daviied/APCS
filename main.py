@@ -11,6 +11,14 @@ track = total_scores.Scores()
 def home():
     return render_template('main.html')
 
+@app.route("/get")
+def get():
+    return str(track)
+
+@app.route("/current")
+def current():
+    return track.current()
+
 
 @app.route("/small")
 def small():
@@ -50,8 +58,6 @@ def new():
 
 @app.route("/history")
 def history():
-    print(track)
-    print(str(track))
     return str(track)
 
 

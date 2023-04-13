@@ -1,38 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <meta charset="UTF-8">
     <title>APCS project</title>
     <h1>Power Play Tracker</h1>
 
-    <form action = "/ground">
-        <button type="submit">ground</button>
-    </form>
-
-    <form action = "/small">
-        <button type="submit">low</button>
-    </form>
-
-    <form action = "/med">
-        <button type="submit">medium</button>
-     </form>
-
-     <form action = "/high">
-        <button type="submit">high</button>
-    </form>
-
-    <form action = "/park">
-        <button type="submit">Parked</button>
-    </form>
-
-    <form action = "/history">
-        <button type="submit">history</button>
-    </form>
-
-    <form action = "/new">
-        <button type="submit">New_run</button>
-    </form>
+    <button onclick="ground()">ground</button>
+    <button onclick="low()">low</button>
+    <button onclick="med()">medium</button>
+    <button onclick="high()">high</button>
+    <button onclick="park()">Parked?</button>
     
+    
+    <form action = "/history">
+        <button type = submit>history</button>
+    </form>
+
+    <button onclick="new_run()">new run</button>
+
+    <p>current run:</p>
+    
+    <p id = "current"></p>
+
+    <p>run history:</p>
+
+    <p id = "hist"> </p>
+    
+
+
+    <script>
+        setInterval(his, 100);
+        function his() {
+            $.get("/get", function(data){
+              document.getElementById("hist").innerHTML = data  
+            });
+        }
+        setInterval(cur, 100);
+        function cur() {
+            $.get("/current", function(data){
+              document.getElementById("current").innerHTML = data  
+            });
+        }
+
+        function ground() {
+            $.get("/ground")
+        }
+        function low() {
+            $.get("/small")
+        }
+        function med() {
+            $.get("/med")
+        }
+        function high() {
+            $.get("/high")
+        }
+        function park() {
+            $.get("/park")
+        }
+        function new_run() {
+            $.get("/new")
+        }
+        
+        
+        
+    </script>
 
 </head>
 <body>
