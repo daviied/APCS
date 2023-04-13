@@ -22,31 +22,31 @@ def current():
 
 @app.route("/small")
 def small():
-    track.small()
+    total_scores.Scores.add("low")
     return render_template('main.html')
 
 
 @app.route("/med")
 def med():
-    track.med()
+    total_scores.Scores.add("med")
     return render_template('main.html')
 
 
 @app.route("/ground")
 def ground():
-    track.ground()
+    total_scores.Scores.add("ground")
     return render_template('main.html')
 
 
 @app.route("/high")
 def high():
-    track.high()
+    total_scores.Scores.add("high")
     return render_template('main.html')
 
 
 @app.route("/park")
 def park():
-    track.park()
+    total_scores.Scores.add("park")
     return render_template('main.html')
 
 

@@ -8,28 +8,33 @@ stri = ""
 
 
 class Scores:
-    def small(self):
+    global history
+    global lows
+    global meds
+    global highs
+    global grounds
+
+    def add(User_in):
+        global history
         global lows
-        lows += 1
-
-    def med(self):
         global meds
-        meds += 1
-
-    def high(self):
         global highs
-        highs += 1
-
-    def ground(self):
         global grounds
-        grounds += 1
+        if (User_in == "ground"):
+            grounds += 1
+        elif (User_in == "low"):
+            lows += 1
+        elif (User_in == "med"):
+            meds += 1
+        elif (User_in == "high"):
+            highs += 1
+        elif (User_in == "park"):
+            global parkeds
+            if (parkeds == False):
+                parkeds = True
+            elif (parkeds == True):
+                parkeds = False
 
-    def park(self):
-        global parkeds
-        if (parkeds == False):
-            parkeds = True
-        elif (parkeds == True):
-            parkeds = False
 
     def new(self):
         global history
@@ -49,6 +54,7 @@ class Scores:
         grounds = 0
         parkeds = False
         print(history)
+
     def current(self):
         global history
         global lows
@@ -56,7 +62,8 @@ class Scores:
         global highs
         global grounds
         global parkeds
-        return "Grounds: " + str(grounds) + " Lows: " + str(lows) + " Mediums: " + str(meds) + " Highs: " + str(highs) + " Parked?: " + str(parkeds)
+        return "Grounds: " + str(grounds) + " Lows: " + str(lows) + " Mediums: " + str(meds) + " Highs: " + str(
+            highs) + " Parked?: " + str(parkeds)
 
     def __str__(self):
         global history
@@ -65,8 +72,9 @@ class Scores:
         x = 0
         stri = ""
         while (x < len(history)):
-            stri += "Grounds: " + str(history[x]) + " Lows: " + str(history[x + 1]) + " Meds: " + str(history[x + 2]) + " Highs: "\
-            + str(history[x + 3]) + " Parked?: " + str(history[x + 4]) + "<br> \n"
+            stri += "Grounds: " + str(history[x]) + " Lows: " + str(history[x + 1]) + " Meds: " + str(
+                history[x + 2]) + " Highs: " \
+                    + str(history[x + 3]) + " Parked?: " + str(history[x + 4]) + "<br> \n"
             x += 5
 
         return stri
